@@ -1,0 +1,13 @@
+apiVersion: skaffold/v1beta11
+kind: Config
+build:
+  artifacts:
+  - image: streamotion-java
+    context: .
+    docker:
+      network: host
+  tagPolicy:
+    envTemplate:
+      template: '{{.DOCKER_REGISTRY}}/fsa-streamotion/streamotion-java:{{.VERSION}}'
+  local: {}
+  
