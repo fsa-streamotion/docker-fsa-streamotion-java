@@ -10,9 +10,6 @@ pipeline {
 
   stages {
     stage('Build Release') {
-      when {
-        branch 'master'
-      }
       steps {
         container('maven') {
               // ensure we're not on a detached head
