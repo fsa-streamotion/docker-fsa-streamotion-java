@@ -19,7 +19,7 @@ pipeline {
               sh "echo \$(jx-release-version) > VERSION"
               sh "jx step tag --version \$(cat VERSION)"
 
-              sh "export VERSION=`cat ./../VERSION` && skaffold build -f skaffold.yaml"
+              sh "export VERSION=`cat VERSION` && skaffold build -f skaffold.yaml"
 
               script {
                 def buildVersion =  readFile "${env.WORKSPACE}/VERSION"
