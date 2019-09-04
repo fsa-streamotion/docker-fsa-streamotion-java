@@ -7,11 +7,9 @@ pipeline {
     ORG = 'fsa-streamotion' 
     APP_NAME = 'fsa-streamotion-java'
   }
+  stages {
 
     stage('Push To DockerHub') {
-      agent {
-        label "dockerhub-maven"
-      }
       steps {
         container('maven') {
               // ensure we're not on a detached head
@@ -31,6 +29,7 @@ pipeline {
         }
       }
     }
+  }
   post {
         always {
           cleanWs()
