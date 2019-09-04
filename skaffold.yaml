@@ -8,6 +8,6 @@ build:
       network: host
   tagPolicy:
     envTemplate:
-      template: '{{.DOCKER_REGISTRY}}/fsa-streamotion/streamotion-java:corretto-{{.VERSION}}'
+      template: '{{.DOCKER_REGISTRY}}/kayosportsau/streamotion-java:corretto-{{.VERSION}}'
   local: {}
   

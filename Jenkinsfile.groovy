@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    label "jenkins-maven"
+    label "dockerhub-maven"
   }
   environment {
     CHART_REPOSITORY= 'https://artifactory.cluster.foxsports-gitops-prod.com.au/artifactory/helm' // Please do not edit this line! Managed by customize.sh
@@ -8,8 +8,10 @@ pipeline {
     APP_NAME = 'fsa-streamotion-java'
   }
 
-  stages {
-    stage('Build Release') {
+    stage('Push To DockerHub') {
+      agent {
+        label "dockerhub-maven"
+      }
       steps {
         container('maven') {
               // ensure we're not on a detached head
@@ -29,6 +31,7 @@ pipeline {
         }
       }
     }
+
   }
   post {
         always {
