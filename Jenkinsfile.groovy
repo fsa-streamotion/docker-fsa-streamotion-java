@@ -6,6 +6,7 @@ pipeline {
     CHART_REPOSITORY= 'https://artifactory.cluster.foxsports-gitops-prod.com.au/artifactory/helm' // Please do not edit this line! Managed by customize.sh
     ORG = 'fsa-streamotion' 
     APP_NAME = 'fsa-streamotion-java'
+    DOCKER_REGISTRY='kayosportsau'
   }
   stages {
 
